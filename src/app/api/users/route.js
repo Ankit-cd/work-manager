@@ -1,41 +1,46 @@
 import { connectDB } from "@/helper/db";
+import { User } from "@/models/user";
 import { NextResponse } from "next/server";
 
 connectDB();
-
-export function GET(){
-    const users = [
-        {
-            name:"Kushal",
-            course:"cpp"
-        },
-        {
-            name:"Ankit",
-            course:"java"
-        },
-        {
-            name:"Random",
-            course:"python"
-        },
-    ];
-    return NextResponse.json(users);   
+ 
+export async function GET(){
+    try {
+        const users = await User.find();
+        return NextResponse.json(users);   
+    } catch (error) {
+        console.log(error);
+        return NextResponse.json({
+            message:"failed to get users",
+            success:false
+        },{status:400,statusText:"Bad Request"})
+        
+    }
 };
 
 export async function POST(request){
-    const jsonData = await request.json();
-    console.log(jsonData);
+    try {
+        const {name,email,password,about,profileURL} = await request.json();
+        const user = new User({
+            name,
+            email,
+            password,
+            about,
+            profileURL
+        });
+        const createdUser = await user.save();
 
-    return NextResponse.json({
-        data:jsonData,
-        message:"posting user data",
-    });
+        const response = NextResponse.json(createdUser,{
+            status:201,
+        });
+        return response;
+    } catch (error) {
+        console.log(error);
+        return NextResponse.json({
+            message:"failed to create user",
+            success:false
+        },{status:401,statusText:"failed"})     
+    }
+
 };
 
-export function PUT(){};
-export function DELETE(){
-    console.log("delete api called");
-    return NextResponse.json({
-        message:"deleted !!",
-        status:true
-    },{status:201,statusText:"New Text"})
-};
