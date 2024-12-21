@@ -1,7 +1,12 @@
+export const metadata = {
+  title:"Home : Work Manager"
+}
+
+
 export default function Home() {
   return (
     <div>
-      <p>Hello</p>
+      <h1 className="text-5xl">Welcome to work manager</h1>
     </div>
   );
 }
