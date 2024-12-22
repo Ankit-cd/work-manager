@@ -18,12 +18,13 @@ export async function GET(request){
 
 // create all the tasks 
 export async function POST(request){
-    const {title,content,userId} = await request.json();
+    const {title,content,status,userId} = await request.json();
     try {
         const task = new Task({
             title,
             content,
-            userId
+            userId,
+            status
         });
 
         const createdTask = await task.save();

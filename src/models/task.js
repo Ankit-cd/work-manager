@@ -1,4 +1,4 @@
-import mongoose, { model } from "mongoose";
+import mongoose from "mongoose";
 
 const taskSchema = new mongoose.Schema({
     title:{
@@ -16,8 +16,8 @@ const taskSchema = new mongoose.Schema({
     },
     status:{
         type:String,
-        enum:["pending","completed","just_added"],
-        default:"pending",
+        enum:["Pending","Completed","Just_Added"],
+        default:"Pending",
     },
     userId:{
         type:mongoose.ObjectId,

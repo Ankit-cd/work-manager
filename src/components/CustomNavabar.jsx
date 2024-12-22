@@ -8,7 +8,7 @@ const CustomNavabar = () => {
   return (
     <nav className='bg-blue-600 flex justify-between items-center h-16 py-2 w-full md:px-20 px-10'>
         <div className='brand'>
-            <h1 className='text-2xl font-semibold'><Link href="/">Work Manager</Link></h1>
+            <h1 className='text-2xl font-semibold whitespace-nowrap'><Link href="/">Work Manager</Link></h1>
         </div>
 
 
@@ -28,8 +28,8 @@ const CustomNavabar = () => {
 
 
 
-        <div>
-            <ul className='flex space-x-5'>
+        <div className='hidden sm:block'>
+            <ul className='gap-5 flex'>
                 <li><a href=""></a>Login</li>
                 <li><a href=""></a>SignUp</li>
             </ul>
