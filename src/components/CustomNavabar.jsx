@@ -30,8 +30,8 @@ const CustomNavabar = () => {
 
         <div className='hidden sm:block'>
             <ul className='gap-5 flex'>
-                <li><a href=""></a>Login</li>
-                <li><a href=""></a>SignUp</li>
+                <li><Link href="/login">Login</Link></li>
+                <li><Link href="/signup">SignUp</Link></li>
             </ul>
         
         </div>

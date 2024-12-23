@@ -42,7 +42,7 @@ const AddTask = () => {
 
         {/* add task div */}
         <div className="flex-1">
-          <form>
+          <form onSubmit={handleAddTask}>
             {/* task title */}
             <div className="mt-4">
               <label
@@ -109,7 +109,6 @@ const AddTask = () => {
               <button
                 type="submit"
                 className="bg-blue-600 py-2 px-3 rounded-lg hover:bg-blue-800"
-                onClick={handleAddTask}
               >
                 Add Todo
               </button>
