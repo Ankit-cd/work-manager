@@ -41,9 +41,6 @@ export async function POST(request) {
         secure:true,
     })
 
-    console.log(user);
-    console.log(token);
-
     return response;
 
   } catch (error) {

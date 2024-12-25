@@ -10,3 +10,9 @@ export async function logIn(data) {
     const result = await response.data;
     return result;
 }
+
+export async function current() {
+    const response = await httpAxios.get("/api/current")
+    const result = await response.data;
+    return result;
+}

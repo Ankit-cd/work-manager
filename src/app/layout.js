@@ -3,6 +3,7 @@ import "./globals.css";
 import CustomNavabar from "@/components/CustomNavabar";
 import Footer from "@/components/Footer";
 import { ToastContainer, toast } from 'react-toastify';
+import UserProvider from "@/context/userProvider";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -26,10 +27,12 @@ export default function RootLayout({ children }) {
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+      <UserProvider>
         <ToastContainer/>
         <CustomNavabar/>
         <div className="p-2">{children}</div>
         <Footer/>
+      </UserProvider>
         
       </body>
     </html>

@@ -27,7 +27,7 @@ const Login = () => {
         position: "top-center",
       });
 
-      router.push("/profile");
+      router.push("/profile/user");
     } catch (error) {
       toast.error(error.response.data.message, {
         position: "top-center",
