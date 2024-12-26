@@ -11,16 +11,15 @@ import { toast } from 'react-toastify';
 const CustomNavabar = () => {
     const context = useContext(UserContext);
     const router = useRouter();
-    
+
 
 
     const doLogout = async () => {
         try {
             const response = await logout();
-            console.log(response);
             context.setUser(undefined);
             toast.success("Logout successfully", {
-                position: "top-center"
+                position: "top-center",               
             });
             router.push("/");
             

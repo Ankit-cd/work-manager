@@ -5,14 +5,15 @@ import React, { useState } from "react";
 import addtaskimg from "../../assests/addtask.svg";
 import { addTask } from "@/services/taskServices";
 import { toast } from "react-toastify";
+import { useRouter } from "next/navigation";
 
 const AddTask = () => {
   const [task, setTask] = useState({
     title: "",
     content: "",
     status: "none",
-    userId: "676199af879097a475edb224",
   });
+  const router= useRouter();
 
   const handleAddTask = async (e) => {
     e.preventDefault();
@@ -23,11 +24,21 @@ const AddTask = () => {
       const result = await addTask(task);
       console.log(result);
       toast.success("Task added successfully");
+      router.push("/show-task");
+
     } catch (error) {
       console.log(error);
       toast.error("Failed to add task");
     }
   };
+
+  const handleReset = () => {
+    setTask({
+      title: "",
+      content: "",
+      status: "none",
+    });
+   }
 
   return (
     <div className="flex justify-center flex-col items-center">
@@ -112,7 +123,7 @@ const AddTask = () => {
               >
                 Add Todo
               </button>
-              <button className="bg-red-600 py-2 px-3 rounded-lg hover:bg-red-800">
+              <button onClick={handleReset} type="button" className="bg-red-600 py-2 px-3 rounded-lg hover:bg-red-800">
                 Clear
               </button>
             </div>

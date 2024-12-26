@@ -10,7 +10,6 @@ const UserProvider = ({ children }) => {
     const fetchUser = async () => {
       try {
         const currentUser = await current();
-        console.log(currentUser);
         setUser({...currentUser});
       } catch (error) {
         setUser(undefined);

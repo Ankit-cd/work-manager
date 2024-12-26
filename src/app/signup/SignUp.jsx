@@ -91,7 +91,7 @@ const SignUp = () => {
                 id="email"
                 value={data.email}
                 onChange={(e) => setData({ ...data, email: e.target.value })}
-                type="text"
+                type="email"
                 placeholder="Enter here"
                 className="w-full p-3 rounded-3xl bg-gray-800 focus:ring-gray-400 border border-gray-800"
               />
