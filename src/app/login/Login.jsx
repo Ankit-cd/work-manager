@@ -2,15 +2,17 @@
 import Image from "next/image";
 import loginimg from "../../assests/login.svg";
 import { toast } from "react-toastify";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { logIn } from "@/services/userService";
 import { useRouter } from "next/navigation";
+import UserContext from "@/context/userContext";
 
 const Login = () => {
   const [data, setData] = useState({
     email: "",
     password: "",
   });
+  const context = useContext(UserContext);
 
   const router = useRouter();
   const handleLogIn = async (e) => {
@@ -26,6 +28,7 @@ const Login = () => {
       toast.success("Login successfull", {
         position: "top-center",
       });
+      context.setUser(result.user);
 
       router.push("/profile/user");
     } catch (error) {

@@ -1,7 +1,6 @@
 "use client"
 import React, { useEffect, useState } from 'react';
 import UserContext from './userContext';
-import { toast } from 'react-toastify';
 import { current } from '@/services/userService';
 
 const UserProvider = ({ children }) => {
@@ -12,11 +11,9 @@ const UserProvider = ({ children }) => {
       try {
         const currentUser = await current();
         console.log(currentUser);
-        setUser(currentUser);
+        setUser({...currentUser});
       } catch (error) {
-        console.log(error);
-        toast.error('Error While Fetching User');
-        setUser(null);
+        setUser(undefined);
       }
     }
     fetchUser();

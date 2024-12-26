@@ -14,6 +14,7 @@ export function middleware(request) {
     "/show-task",
     "/profile/:path*",
     "/api/:path*",
+    "/profile"
   ];
 
   const { pathname } = request.nextUrl;

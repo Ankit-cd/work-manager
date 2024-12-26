@@ -16,3 +16,9 @@ export async function current() {
     const result = await response.data;
     return result;
 }
+
+export async function logout() {
+    const response = await httpAxios.post("/api/logout")
+    const result = await response.data;
+    return result;
+}

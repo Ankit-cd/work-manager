@@ -32,11 +32,13 @@ export async function POST(request) {
 
     const response = NextResponse.json({
       message : "login success",
+      user : user,
       success : true,
+
     });
 
     response.cookies.set("loginToken",token,{
-        expiresIn:"1d",
+        expires: new Date(Date.now() + 1000 * 60 * 60 * 24 * 7),
         httpOnly:true,
         secure:true,
     })
