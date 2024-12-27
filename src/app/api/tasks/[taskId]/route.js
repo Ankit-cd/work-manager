@@ -1,8 +1,11 @@
+import { connectDB } from "@/helper/db";
 import { getResponseMessage } from "@/helper/responseMessage";
 import { Task } from "@/models/task";
 import { NextResponse } from "next/server";
 
 // api/tasks/{taskId}
+
+connectDB();
 export async function GET(request,{params}){
     const {taskId} = await params;
     try {

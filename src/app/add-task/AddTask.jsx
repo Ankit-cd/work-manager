@@ -17,12 +17,10 @@ const AddTask = () => {
 
   const handleAddTask = async (e) => {
     e.preventDefault();
-    console.log(task);
     // validate task
 
     try {
       const result = await addTask(task);
-      console.log(result);
       toast.success("Task added successfully");
       router.push("/show-task");
 

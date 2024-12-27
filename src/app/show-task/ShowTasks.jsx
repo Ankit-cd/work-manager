@@ -15,7 +15,6 @@ const ShowTasks = () => {
         try {
             const tasks = await getTasksofUser(userId);
             setTasks([...tasks]);
-            console.log(tasks);
             
         } catch (error) {
             console.log(error);
@@ -31,7 +30,6 @@ const ShowTasks = () => {
         try {
             
             const result = await deleteTask(taskId);
-            console.log(result);
             const newtasks = tasks.filter((task)=>task._id!==taskId);
             setTasks(newtasks);
             toast.success("Your task has been deleted",{

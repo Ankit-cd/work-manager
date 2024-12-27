@@ -8,7 +8,7 @@ export const connectDB = async () =>{
         return;
     }
     try {
-       const {connection} = await mongoose.connect(process.env.DATABASE_URL,{
+       const { connection } = await mongoose.connect(process.env.DATABASE_URL,{
             dbName:'WorkManagerDb'
         });
 

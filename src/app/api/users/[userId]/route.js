@@ -1,5 +1,8 @@
+import { connectDB } from "@/helper/db";
 import { User } from "@/models/user";
 import { NextResponse } from "next/server";
+
+connectDB();
 
 export async function DELETE(request,{params}){
     const { userId } = await params;

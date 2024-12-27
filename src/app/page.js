@@ -2,9 +2,6 @@ export const metadata = {
   title:"Home : Work Manager"
 }
 
-import { connectDB } from "@/helper/db";
-connectDB();
-
 
 export default function Home() {
   return (

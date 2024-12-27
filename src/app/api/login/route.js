@@ -3,8 +3,12 @@ import { User } from "@/models/user";
 import bcrypt from "bcryptjs";
 import { NextResponse } from "next/server";
 import jwt from "jsonwebtoken";
+import { connectDB } from "@/helper/db";
+
 
 export async function POST(request) {
+  
+  await connectDB();
   const { email, password } = await request.json();
 
   try {
