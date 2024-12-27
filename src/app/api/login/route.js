@@ -50,6 +50,6 @@ export async function POST(request) {
 
   } catch (error) {
     console.log(error);
-    return getResponseMessage(error, 500, false);
+    return getResponseMessage("failed to login", 500, false);
   }
 }
