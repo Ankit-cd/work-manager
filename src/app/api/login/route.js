@@ -44,7 +44,6 @@ export async function POST(request) {
     response.cookies.set("loginToken",token,{
         expires: new Date(Date.now() + 1000 * 60 * 60 * 24 * 7),
         httpOnly:true,
-        secure:true,
     })
 
     return response;
